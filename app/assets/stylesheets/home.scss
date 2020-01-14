@@ -1,0 +1,35 @@
+section {
+  background-color: #f1f1f1;
+  width: 100%;
+}
+
+section .videos-collection {
+  width: 50%;
+  margin: 0 auto;
+  .video-image {
+    margin-top: 5%;
+  }
+
+  .video {
+    border-top: 1px solid lightgray;
+    width: 50%;
+  }
+
+  .title {
+    margin: 0;
+    font-family: arial;
+  }
+
+  .channel {
+    margin-top: 8px;
+  }
+
+  p {
+    display: block;
+    margin-top: 0px;
+    margin-bottom: 5px;
+    color: #707070;
+    font-size: 13px;
+    font-family: arial;
+  }
+}
