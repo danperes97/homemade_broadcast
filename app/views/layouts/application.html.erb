@@ -1,17 +1,23 @@
 <!DOCTYPE html>
 <html>
   <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>HomemadeBroadcast</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
+    <link href="https://vjs.zencdn.net/7.6.6/video-js.css" rel="stylesheet" />
   </head>
 
   <body>
     <%= render partial: 'layouts/navbar' %>
-    <%= render partial: 'layouts/devise_alerts' %>
-    <%= yield %>
+    <div class="main">
+      <%= render partial: 'layouts/devise_alerts' %>
+      <%= yield %>
+    </div>
   </body>
 </html>

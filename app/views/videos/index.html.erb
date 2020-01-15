@@ -1,27 +1,47 @@
-<p id="notice"><%= notice %></p>
+<%- model_class = Video -%>
+<div class="page-header">
+  <h1><%=t '.title', default: model_class.model_name.human.pluralize.titleize %></h1>
+</div>
 
-<h1>Videos</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th>Title</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @videos.each do |video| %>
+<div class="table-responsive">
+  <table class="table table-striped">
+    <thead>
       <tr>
-        <td><%= video.title %></td>
-        <td><%= link_to 'Show', video %></td>
-        <td><%= link_to 'Edit', edit_video_path(video) %></td>
-        <td><%= link_to 'Destroy', video, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <th class="th-sm"><%= model_class.human_attribute_name(:id) %></th>
+        <th class="th-sm"><%= model_class.human_attribute_name(:title) %></th>
+        <th class="th-sm"><%= model_class.human_attribute_name(:video) %></th>
+        <th class="th-sm"><%= model_class.human_attribute_name(:thumb) %></th>
+        <th class="th-sm"><%= model_class.human_attribute_name(:user_id) %></th>
+        <th class="th-sm"><%= model_class.human_attribute_name(:created_at) %></th>
+        <th class="th-sm"><%= t '.actions', default: t("helpers.actions") %></th>
       </tr>
-    <% end %>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <% @videos.each do |video| %>
+      <tr>
+        <td><%= link_to video.id, video_path(video) %></td>
+        <td><%= video.title %></td>
+        <td><%= video.video %></td>
+        <td><%= video.thumb %></td>
+        <td><%= video.user_id %></td>
+        <td><%= l video.created_at %></td>
+        <td>
+          <%= link_to t('.show', default: t("helpers.links.show")),
+          video_path(video), class: 'btn btn-default btn-xs' %>
+          <%= link_to t('.edit', default: t("helpers.links.edit")),
+          edit_video_path(video), class: 'btn btn-default btn-xs' %>
+          <%= link_to t('.destroy', default: t("helpers.links.destroy")),
+          video_path(video),
+          method: :delete,
+          data: { confirm: t('.confirm', default: t("helpers.links.confirm", default: 'Are you sure?')) },
+          class: 'btn btn-xs btn-danger' %>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+</div>
 
-<br>
-
-<%= link_to 'New Video', new_video_path %>
+<%= link_to t('.new', default: t("helpers.links.new")),
+            new_video_path,
+            class: 'btn btn-primary' %>

@@ -1,14 +1,16 @@
-<section>
-  <div class="videos-collection">
+<div class="container">
+  <h3 class="page-header" id="youtube-gallery">Gallery Videos</h3>
+  <div class="row">
     <% @videos.each do |video| %>
-      <div class="video">
-        <%= link_to(video) do %>
-          <%= image_tag(video.thumb.url.to_s, width: 210) %>
-          <h4 class="title"><%= video.title.capitalize %></h4>
-        <% end %>
-        <p class="channel">Fred Doido</p>
-        <p class="views">100 mil vizualizacoes</p>
-        <p class="date">4 semanas atras</p>
-      </div>
+      <a href="<%= video_watch_path(token: video.token) %>"
+         data-title="<%= video.title %>"
+         data-width="1024"
+         data-toggle="lightbox" data-gallery="youtubevideos" class="col-sm-4 video">
+        <button type="button" class="btn btn-play">
+          <span class="glyphicon glyphicon-play" aria-label="Play"></span>
+        </button>
+        <img src="<%= video.thumb.url %>" class="img-responsive">
+      </a>
     <% end %>
-</section>
+  </div>
+</div>

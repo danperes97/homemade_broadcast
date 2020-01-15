@@ -4,6 +4,7 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.string :title
       t.string :video
       t.string :thumb
+      t.string :token
       t.references :user
 
       t.timestamps

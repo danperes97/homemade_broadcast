@@ -1,11 +1,38 @@
-<div class="bar">
-  <div class="left button">HomemadeBroadcast</div>
-  <div class="right button">Search</div>
-  <div class="center">
-    <div class="search_cont">
-      <input class="search" type="text"/>
-      <!-- <div class="search_items_wrap"><a class="search_item" href="#">0</a><a class="search_item" href="#">1</a><a class="search_item" href="#">2</a><a class="search_item" href="#">3</a><a class="search_item" href="#">4</a><a class="search_item" href="#">5</a><a class="search_item" href="#">6</a><a class="search_item" href="#">7</a><a class="search_item" href="#">8</a><a class="search_item" href="#">9</a>
-      </div> -->
+<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+					<span class="icon-bar"></span>
+				</button>
+      <%= link_to "HB", root_path, class: "navbar-brand"%>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav navbar-right">
+        <% if current_user.present? %>
+          <li><%= link_to "Edit Profile", edit_user_registration_path(current_user) %></li>
+          <li><%= link_to "My videos", videos_path %></li>
+          <li><%= link_to "Log Out", destroy_user_session_path, method: :delete %></li>
+        <% else %>
+          <li><%= link_to "Sign Up", new_registration_path(:user) %></li>
+          <li><%= link_to "Log In", new_user_session_path %></li>
+        <% end %>
+      </ul>
+
+      <form class="navbar-form navbar-right" role="search">
+        <div class="input-group active">
+          <input type="text" class="form-control" style="width: 250px;" placeholder="Trimble [112] Case Inquiry">
+          <span class="input-group-btn">
+            <button type="submit" class="btn btn-success" id='searchBtn'>
+						  <span class="glyphicon glyphicon-search">
+							  <span class="sr-only">Search</span>
+              </span>
+            </button>
+          </span>
+        </div>
+      </form>
     </div>
   </div>
-</div>
+</nav>

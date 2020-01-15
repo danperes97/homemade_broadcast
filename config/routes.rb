@@ -2,6 +2,8 @@ Rails.application.routes.draw do
   resources :videos
   devise_for :users
 
-  root to: 'home#index'
-  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
+
+  get '/videos/watch/:token', to: 'videos#watch', as: :video_watch
+
+  root 'home#index'
 end

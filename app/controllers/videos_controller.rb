@@ -4,12 +4,16 @@ class VideosController < ApplicationController
   # GET /videos
   # GET /videos.json
   def index
-    @videos = Video.all
+    @videos = Video.where(user_id: current_user)
   end
 
   # GET /videos/1
   # GET /videos/1.json
   def show
+  end
+
+  def watch
+    @video = Video.find_by(token: params[:token])
   end
 
   # GET /videos/new

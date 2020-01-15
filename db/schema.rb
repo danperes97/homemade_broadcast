@@ -28,6 +28,7 @@ ActiveRecord::Schema.define(version: 2020_01_14_015611) do
     t.string "title"
     t.string "video"
     t.string "thumb"
+    t.string "token"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
