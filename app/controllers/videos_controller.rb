@@ -7,6 +7,10 @@ class VideosController < ApplicationController
     @videos = Video.where(user_id: current_user)
   end
 
+  def search
+    @videos = Video.where("title LIKE ?", "%#{params[:query]}%")
+  end
+
   # GET /videos/1
   # GET /videos/1.json
   def show

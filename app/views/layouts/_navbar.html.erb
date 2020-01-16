@@ -21,18 +21,18 @@
         <% end %>
       </ul>
 
-      <form class="navbar-form navbar-right" role="search">
+      <%= form_tag(video_search_path, method: :get, class: "navbar-form navbar-right")  do %>
         <div class="input-group active">
-          <input type="text" class="form-control" style="width: 250px;" placeholder="Trimble [112] Case Inquiry">
+          <input type="text" name="query" class="form-control" id="query" style="width: 250px;" placeholder="Search some video">
           <span class="input-group-btn">
             <button type="submit" class="btn btn-success" id='searchBtn'>
-						  <span class="glyphicon glyphicon-search">
-							  <span class="sr-only">Search</span>
+              <span class="glyphicon glyphicon-search">
+                <span class="">Search</span>
               </span>
             </button>
           </span>
         </div>
-      </form>
+      <% end %>
     </div>
   </div>
 </nav>
