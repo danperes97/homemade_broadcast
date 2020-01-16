@@ -64,6 +64,7 @@ button.btn-play {
 @media (max-width: 767px) {
   a.video {
     display: block;
+    max-width: 100%;
   }
    button.btn-play {
     .glyphicon {

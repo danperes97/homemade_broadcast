@@ -1,67 +1,31 @@
-<div class="vid-main-wrapper clearfix">
+<section class="video-container">
+  <div class="video-player">
+    <div class="video-player-ifrm">
+      <%= render partial: "videos/video_player", locals: { url: @video.video.url.to_s }%>
+    </div>
+  </div>
 
-  		    <!-- THE YOUTUBE PLAYER -->
-      <div class="vid-container">
-        <dl class="dl-horizontal">
-          <div class="video-player">
-            <%= render partial: "videos/video_player", locals: { url: @video.video.url.to_s }%>
-          </div>
-        </dl>
+  <div class="video-playlist">
+    <div class="playlist-headin-ifrmg">
+      <span>Related Videos</span>
+    </div>
+  	<nav>
+  		<ul id="video-list">
+        <% @videos.each do |video| %>
+          <li>
+            <%= link_to video_watch_path(token: video.token) do %>
+              <%= image_tag(video.thumb.url.to_s, width: 210) %>
+              <%= video.title  %>
+            <% end %>
+          </li>
+        <% end %>
+      </ul>
+  	</nav>
+  </div>
+</section>
 
-      <!-- THE PLAYLIST -->
-      <div class="vid-list-container">
-            <ol id="vid-list">
-              <li>
-                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/cOSEOYi9JS4?autoplay=1&rel=0&showinfo=0&autohide=1'">
-                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/cOSEOYi9JS4/default.jpg" /></span>
-                  <div class="desc">WeatherBeater™ Product Video</div>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/9P7mEf4bilg?autoplay=1&rel=0&showinfo=0&autohide=1'">
-                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/9P7mEf4bilg/default.jpg" /></span>
-                  <div class="desc">X-act Contour® Product Video</div>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/KHxNpXovl58?autoplay=1&rel=0&showinfo=0&autohide=1'">
-                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/KHxNpXovl58/default.jpg" /></span>
-                  <div class="desc">GearBox® Product Video</div>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/D_a2UBGsePQ?autoplay=1&rel=0&showinfo=0&autohide=1'">
-                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/D_a2UBGsePQ/default.jpg" /></span>
-                  <div class="desc">Mud Guards Product Video</div>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/vYoh2IgoBXg?autoplay=1&rel=0&showinfo=0&autohide=1'">
-                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/vYoh2IgoBXg/default.jpg" /></span>
-                  <div class="desc">Wheel Well Guards Product Video</div>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/RTHI_uGyfTM?autoplay=1&rel=0&showinfo=0&autohide=1'">
-                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/RTHI_uGyfTM/default.jpg" /></span>
-                  <div class="desc">Cargo Liner Product Video</div>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/EvTjAjLNphE?autoplay=1&rel=0&showinfo=0&autohide=1'">
-                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/EvTjAjLNphE/default.jpg" /></span>
-                  <div class="desc">Husky Liners Products</div>
-                </a>
-              </li>
-              <li>
-                <a href="javascript:void();" onClick="document.getElementById('vid_frame').src='https://youtube.com/embed/-Qpc79oaJQg?autoplay=1&rel=0&showinfo=0&autohide=1'">
-                  <span class="vid-thumb"><img width=72 src="https://img.youtube.com/vi/-Qpc79oaJQg/default.jpg" /></span>
-                  <div class="desc">Custom Molded Mud Guards</div>
-                </a>
-              </li>
-
-            </ol>
-       </div>
-
-
-</div>
+<script id="videotpl" type="text/template">
+  {{#videos}}
+    <li><a href="{{url}}" onclick="return loadIframe('ifrm', this.href);">{{{title}}}</a></li>
+  {{/videos}}
+</script>

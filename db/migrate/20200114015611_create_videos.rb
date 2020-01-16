@@ -6,6 +6,7 @@ class CreateVideos < ActiveRecord::Migration[5.2]
       t.string :thumb
       t.string :token
       t.references :user
+      t.integer :views, default: 0
 
       t.timestamps
     end

@@ -14,6 +14,14 @@ class VideosController < ApplicationController
 
   def watch
     @video = Video.find_by(token: params[:token])
+    @videos = Video.all
+
+    if VideoView.find_by(video_id: @video.id,
+    user_id: current_user.id).nil?
+      VideoView.new(
+        video_id: @video.id,
+        user_id: current_user.id).save
+    end
   end
 
   # GET /videos/new
