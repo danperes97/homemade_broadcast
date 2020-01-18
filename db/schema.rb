@@ -10,7 +10,10 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_16_010614) do
+ActiveRecord::Schema.define(version: 2020_01_18_182408) do
+
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,8 +32,10 @@ ActiveRecord::Schema.define(version: 2020_01_16_010614) do
     t.integer "video_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.bigint "viewer_id"
     t.index ["user_id"], name: "index_video_views_on_user_id"
     t.index ["video_id"], name: "index_video_views_on_video_id"
+    t.index ["viewer_id"], name: "index_video_views_on_viewer_id"
   end
 
   create_table "videos", force: :cascade do |t|
@@ -43,6 +48,13 @@ ActiveRecord::Schema.define(version: 2020_01_16_010614) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_videos_on_user_id"
+  end
+
+  create_table "viewers", force: :cascade do |t|
+    t.string "token"
+    t.string "ip"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
 end

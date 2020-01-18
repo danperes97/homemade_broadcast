@@ -20,12 +20,17 @@ class VideosController < ApplicationController
     @video = Video.find_by(token: params[:token])
     @videos = Video.all
 
-    if VideoView.find_by(video_id: @video.id,
-    user_id: current_user.id).nil?
-      VideoView.new(
-        video_id: @video.id,
-        user_id: current_user.id).save
+    create_video_view!(@video)
+  end
+
+  def create_video_view!(video)
+    find_options = if current_user.present?
+      { video_id: video.id, user_id: current_user.id }
+    else
+      { video_id: video.id, viewer_id: @viewer.id }
     end
+
+    VideoView.find_or_create_by(find_options).save
   end
 
   # GET /videos/new
