@@ -27,6 +27,8 @@
     <small class="form-text text-muted"><%= t('.we_need_your_current_password_to_confirm_your_changes') %></small>
   </div>
 
+  <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
   <div class="form-group">
     <%= f.submit "Update", class: 'btn btn-primary' %>
   </div>
