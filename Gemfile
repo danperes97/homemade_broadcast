@@ -2,8 +2,15 @@ source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.5'
-
-#postgresql
+# AWS-SDK storage adapter for CarrierWave
+gem 'carrierwave-aws'
+# A ruby wrapper for ImageMagick or GraphicsMagick command line.
+gem 'mini_magick'
+# Official repository for the aws-sdk-rails gem, which integrates the AWS SDK for Ruby with Ruby on Rails.
+gem 'aws-sdk-rails'
+# Simple Rails app configuration
+gem 'figaro'
+# A PostgreSQL client library for Ruby
 gem 'pg'
 # bootstrap
 gem "therubyracer"
