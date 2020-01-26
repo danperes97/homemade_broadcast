@@ -1,5 +1,7 @@
 require 'support/factory_bot'
 require File.expand_path('../config/environment', __dir__)
+require 'simplecov'
+SimpleCov.start
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|

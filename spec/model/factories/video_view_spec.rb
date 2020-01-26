@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe VideoView do
   context 'create a video view based on user and viewer' do
     let(:user) { create(:user) }

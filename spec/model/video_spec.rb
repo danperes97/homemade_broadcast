@@ -1,3 +1,5 @@
+require 'rails_helper'
+
 RSpec.describe Video, :model do
   let(:user) { create(:user) }
   let(:video) { create(:video, user: user) }

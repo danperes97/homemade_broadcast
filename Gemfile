@@ -38,16 +38,20 @@ gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
 
-# Behaviour Driven Development for Ruby
-gem 'rspec'
-
-# A library for setting up Ruby objects as test data
-gem "factory_bot_rails"
 
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
 
+
+gem 'simplecov', require: false, group: :test
+
 group :development, :test do
+  # Behaviour Driven Development for Ruby
+  gem 'rspec-rails'
+
+  # A library for setting up Ruby objects as test data
+  gem "factory_bot_rails"
+
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]
 end
