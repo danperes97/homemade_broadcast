@@ -9,4 +9,8 @@ class Video < ApplicationRecord
   def set_token
     self.token = SecureRandom.hex(10)
   end
+
+  def views_count
+    self.video_views.count
+  end
 end
