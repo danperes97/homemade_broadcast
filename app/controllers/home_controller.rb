@@ -1,5 +1,5 @@
 class HomeController < ApplicationController
   def index
-    @videos = Video.all
+    @videos = VideosWatchService.recomended_videos_for(current_user)
   end
 end

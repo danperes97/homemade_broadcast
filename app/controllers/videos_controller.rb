@@ -16,21 +16,11 @@ class VideosController < ApplicationController
   def show
   end
 
-  def watch
+  def watch 
     @video = Video.find_by(token: params[:token])
-    @videos = Video.all
+    @videos = VideosWatchService.recomended_videos_for(current_user)
 
-    create_video_view!(@video)
-  end
-
-  def create_video_view!(video)
-    find_options = if current_user.present?
-      { video_id: video.id, user_id: current_user.id }
-    else
-      { video_id: video.id, viewer_id: @viewer.id }
-    end
-
-    VideoView.find_or_create_by(find_options).save
+    VideosWatchService.increase_view!(@video, current_user, @viewer)
   end
 
   # GET /videos/new
