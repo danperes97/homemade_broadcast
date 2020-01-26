@@ -13,4 +13,12 @@ class Video < ApplicationRecord
   def views_count
     self.video_views.count
   end
+
+  def video_url
+    self.video.url.to_s
+  end
+
+  def thumb_url
+    self.thumb.url.to_s
+  end
 end

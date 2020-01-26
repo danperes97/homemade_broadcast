@@ -1,14 +1,14 @@
 <section class="video-container">
   <div class="video-player">
     <div class="video-player-ifrm">
-      <%= render partial: "videos/video_player", locals: { url: @video.video.url.to_s }%>
+      <%= render partial: "videos/video_player", locals: { url: @video.video_url }%>
     </div>
   </div>
 
   <div class="video-stats">
     <hr>
       <span><h3><%= @video.title %></h3></span>
-      <span><%= @video.video_views.count %> views</span>
+      <span><%= @video.views_count %> views</span>
     <hr>
   </div>
 
@@ -22,7 +22,7 @@
         <% @videos.each do |video| %>
           <li>
             <%= link_to video_watch_path(token: video.token) do %>
-              <%= image_tag(video.thumb.url.to_s, width: 210) %>
+              <%= image_tag(video.thumb_url, width: 210) %>
               <%= video.title  %>
             <% end %>
           </li>
