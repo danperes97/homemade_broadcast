@@ -6,7 +6,7 @@ class VideosWatchService
     end
   end
 
-  def self.recomended_videos_for(user)
+  def self.recommended_videos_for(user)
     Video.all
   end
 end

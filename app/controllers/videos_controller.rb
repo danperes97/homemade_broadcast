@@ -16,9 +16,9 @@ class VideosController < ApplicationController
   def show
   end
 
-  def watch 
+  def watch
     @video = Video.find_by(token: params[:token])
-    @videos = VideosWatchService.recomended_videos_for(current_user)
+    @videos = VideosWatchService.recommended_videos_for(current_user)
 
     VideosWatchService.increase_view!(@video, current_user, @viewer)
   end
