@@ -6,5 +6,9 @@ FactoryBot.define do
     views { rand(100) }
     token { Faker::Internet.uuid }
     user
+
+    trait :with_categories do
+      categories { create_list(:category, 2)  }
+    end
   end
 end
