@@ -1,0 +1,20 @@
+<div class="bar-videos">
+  <div class="video-categories">
+
+    <% categories_and_icons(@video_categories).each do |category| %>
+    <div class="video-category">
+      <a href="#sdaa">
+        <div class="icon">
+          <%= fa_stacked_icon category[:icon] %>
+        </div>
+
+        <div class="text">
+          <%= category[:name] %>
+        </div>
+      </a>
+    </div>
+    <% end %>
+
+  </div>
+  <hr>
+</div>

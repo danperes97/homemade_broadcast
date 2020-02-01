@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_01_26_180956) do
+ActiveRecord::Schema.define(version: 2020_02_01_143459) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -39,8 +39,8 @@ ActiveRecord::Schema.define(version: 2020_01_26_180956) do
   end
 
   create_table "video_views", force: :cascade do |t|
-    t.integer "user_id"
-    t.integer "video_id"
+    t.bigint "user_id"
+    t.bigint "video_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "viewer_id"
@@ -54,7 +54,7 @@ ActiveRecord::Schema.define(version: 2020_01_26_180956) do
     t.string "video"
     t.string "thumb"
     t.string "token"
-    t.integer "user_id"
+    t.bigint "user_id"
     t.integer "views", default: 0
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

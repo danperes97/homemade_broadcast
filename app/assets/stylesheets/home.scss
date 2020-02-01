@@ -72,3 +72,45 @@ button.btn-play {
     }
   }
 }
+
+.bar-videos {
+  display: flex;
+}
+
+.video-categories {
+  display: flex;
+  width: 100%;
+  overflow: overlay;
+}
+
+.nav-button {
+  margin-top: 40px;
+  height: 100%;
+  margin-left: 1%;
+}
+
+.nav-button .back-icon {
+  margin-top: 40px;
+  height: 100%;
+  margin-right: 1%;
+}
+
+.video-category {
+  .icon {
+    font-size: 40px;
+  }
+
+  .text {
+    margin-top: 10px;
+    width: 50%;
+    margin: auto;
+  }
+
+  a:hover {
+    color: #0b4785;
+  }
+}
+
+hr {
+  border-top: 1px solid #0b4785;
+}

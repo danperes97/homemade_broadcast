@@ -37,7 +37,8 @@ gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 # Build JSON APIs with ease. Read more: https://github.com/rails/jbuilder
 gem 'jbuilder', '~> 2.5'
-
+# the font-awesome font bundled as an asset for the rails asset pipeline
+gem "font-awesome-rails"
 
 # A library for generating fake data such as names, addresses, and phone numbers.
 gem 'faker', git: 'https://github.com/faker-ruby/faker.git', branch: 'master'
