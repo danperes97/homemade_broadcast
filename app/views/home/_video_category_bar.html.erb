@@ -3,7 +3,7 @@
 
     <% categories_and_icons(@video_categories).each do |category| %>
     <div class="video-category">
-      <a href="#sdaa">
+      <a href="<%= video_search_path(category: category[:name]) %>">
         <div class="icon">
           <%= fa_stacked_icon category[:icon] %>
         </div>

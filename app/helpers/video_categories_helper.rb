@@ -19,4 +19,10 @@ module VideoCategoriesHelper
       }
     end
   end
+
+  def all_categories_for_selection
+    Category.all.collect do |category|
+      [category.tag_name, category.id]
+    end
+  end
 end

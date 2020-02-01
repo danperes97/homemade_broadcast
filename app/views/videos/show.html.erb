@@ -11,6 +11,17 @@
   </dt>
 </div>
 
+<div class="title">
+  <dt>
+    <strong><%= model_class.human_attribute_name(:categories) %>:</strong>
+    <div class="video-categories-hashtags">
+      <% @video.categories.each do |category|%>
+        <span>#<%= category.tag_name %></span>
+      <% end %>
+    </div>
+  </dt>
+</div>
+
 <div class="thumb">
   <dt>
     <strong><%= model_class.human_attribute_name(:thumb) %>:</strong>

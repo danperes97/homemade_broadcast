@@ -8,7 +8,7 @@ class VideosController < ApplicationController
   end
 
   def search
-    @videos = Video.where("title LIKE ?", "%#{params[:query]}%")
+    @videos = VideosSearchService.search(params)
   end
 
   # GET /videos/1
@@ -36,6 +36,7 @@ class VideosController < ApplicationController
   # POST /videos.json
   def create
     @video = Video.new(video_params)
+
     @video.user_id = current_user.id
 
     respond_to do |format|
@@ -81,6 +82,6 @@ class VideosController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def video_params
-      params.require(:video).permit(:title, :video, :thumb)
+      params.require(:video).permit(:title, :video, :thumb, category_ids: [])
     end
 end

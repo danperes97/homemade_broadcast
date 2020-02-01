@@ -2,9 +2,11 @@ class Video < ApplicationRecord
   mount_uploader :video, VideoUploader
   mount_uploader :thumb, VideoUploader
   belongs_to :user
-  
+
   has_many :video_views
+  has_many :video_categories
   has_many :categories, through: :video_categories
+  accepts_nested_attributes_for :video_categories
 
   before_create :set_token
 
