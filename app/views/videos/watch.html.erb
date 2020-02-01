@@ -3,15 +3,14 @@
     <div class="video-player-ifrm">
       <%= render partial: "videos/video_player", locals: { url: @video.video_url }%>
     </div>
-  </div>
 
-  <div class="video-stats">
-    <hr>
-      <span><h3><%= @video.title %></h3></span>
-      <span><%= @video.views_count %> views</span>
-    <hr>
+    <div class="video-stats">
+      <hr>
+        <span><h3><%= @video.title %></h3></span>
+        <span><%= @video.views_count %> views</span>
+      <hr>
+    </div>
   </div>
-
 
   <div class="video-playlist">
     <div class="playlist-headin-ifrmg">
