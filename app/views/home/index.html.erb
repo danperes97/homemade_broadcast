@@ -3,31 +3,31 @@
   <div class="title">
     <h3><strong>Recommended</strong></h3>
   </div>
-    <div class="video-gallery">
-      <% @videos.each do |video| %>
-        <div class="row">
-          <a href="<%= video_watch_path(token: video.token) %>"
-             data-title="<%= video.title %>"
-             data-width="1024"
-             data-toggle="lightbox" data-gallery="youtubevideos" class="col-sm-4 video">
-            <button type="button" class="btn btn-play">
-              <span class="glyphicon glyphicon-play" aria-label="Play"></span>
-            </button>
-            <img src="<%= video.thumb.url %>" class="img-responsive">
-          </a>
+  <div class="video-gallery">
+    <% @videos.each do |video| %>
+      <div class="row">
+        <a href="<%= video_watch_path(token: video.token) %>"
+           data-title="<%= video.title %>"
+           data-width="1024"
+           data-toggle="lightbox" data-gallery="youtubevideos" class="col-sm-4 video">
+          <button type="button" class="btn btn-play">
+            <span class="glyphicon glyphicon-play" aria-label="Play"></span>
+          </button>
+          <img src="<%= video.thumb.url %>" class="img-responsive">
+        </a>
 
-          <div class="video-info">
-            <h2><%= video.title %></h2>
-            <div class="video-info-channel">
-              <span><%= video.user.email %></span>
-            </div>
-            <div class="video-info-views">
-              <span><%= video.video_views.count %> views •
-                <%= time_ago_in_words(video.created_at) %> ago
-              </span>
-            </div>
+        <div class="video-info">
+          <h2><%= video.title %></h2>
+          <div class="video-info-channel">
+            <span><%= video.user.email %></span>
+          </div>
+          <div class="video-info-views">
+            <span><%= video.video_views.count %> views •
+              <%= time_ago_in_words(video.created_at) %> ago
+            </span>
           </div>
         </div>
-      <% end %>
-    </div>
+      </div>
+    <% end %>
+  </div>
 </div>

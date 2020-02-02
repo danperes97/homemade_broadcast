@@ -1,8 +1,10 @@
 <div class="container">
   <% if @videos.present? %>
-    <h3 id="youtube-gallery">Found videos with: <span class="search-result"><%= search_params_to_string %></span></h3>
+    <div class="title">
+      <h3><strong>Found videos with: <span class="search-result"><%= search_params_to_string %></strong></h3>
+    </div>
+    <div class="video-gallery">
       <% @videos.each do |video| %>
-      <hr>
         <div class="row">
           <a href="<%= video_watch_path(token: video.token) %>"
              data-title="<%= video.title %>"
@@ -13,12 +15,24 @@
             </button>
             <img src="<%= video.thumb.url %>" class="img-responsive">
           </a>
-          <h2><%= video.title %></h2>
-          <h5>Views: <%= video.views_count %></h5>
-          <h5>Author: <%= video.user.email %></h5>
+
+          <div class="video-info">
+            <h2><%= video.title %></h2>
+            <div class="video-info-channel">
+              <span><%= video.user.email %></span>
+            </div>
+            <div class="video-info-views">
+              <span><%= video.video_views.count %> views •
+                <%= time_ago_in_words(video.created_at) %> ago
+              </span>
+            </div>
+          </div>
         </div>
       <% end %>
+    </div>
   <% else %>
-    <h3 id="youtube-gallery">Sorry theres no video for this search: <span class="search-result"><%= search_params_to_string %></span></h3>
+    <div class="title">
+      <h3><strong>Found videos with: <span class="search-result"><%= search_params_to_string %></strong></h3>
+    </div>
   <% end %>
 </div>
