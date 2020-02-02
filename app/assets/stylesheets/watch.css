@@ -54,6 +54,7 @@
 
 #video-list img {
  width: 40%;
+ max-height: 70px;
 }
 
 #video-list li {
@@ -239,7 +240,19 @@
   .video-player-dim {
     width: 875px;
   }
+
+  #video-list img {
+   width: 40%;
+   max-height: 145px;
+  }
  }
+
+ @media only screen and (max-width: 560px) {
+   #video-list img {
+    width: 40%;
+    max-height: 80px;
+   }
+  }
 
 /* demo */
 body {
