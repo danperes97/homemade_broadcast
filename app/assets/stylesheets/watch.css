@@ -197,10 +197,6 @@
     width: 620px;
     height: 100%;
   }
-
-  .video-playlist {
-    color: blue;
-  }
 }
 
 @media only screen and (min-width:  1200px) {
